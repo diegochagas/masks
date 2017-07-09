@@ -3,14 +3,7 @@
 function mask(o,f){
 	v_obj=o;
 	v_fun=f;
-	var ua=navigator.userAgent.toLowerCase();
-	var isAndroid=ua.indexOf("android")>-1;
-	var androidversion=parseFloat(ua.slice(ua.indexOf("android")+8));
-	if((isAndroid)&&(androidversion<4.1)){
-		execMask();
-	}else{
-		setTimeout("execMask()",1);
-	}
+	setTimeout("execMask()",1);
 };
 
 function execMask(){
