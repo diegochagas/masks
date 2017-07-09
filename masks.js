@@ -61,7 +61,7 @@ function rgMask(s){
 	  return s;
 	}
 
-//Aplica a mascara de CPF ou CNPJ de acordo com a qtde de numeros
+// Apply the mask of CPF or CNPJ according to the quantity of numbers
 function cpfCnpj(v){
 	v=v.replace(/\D/g,"");
 	if (v.length < 12){
@@ -79,7 +79,7 @@ function cpfCnpj(v){
 	return v;
 }
 
-//Fun��o para validar email
+// Function to validate email
 function checkEmail(strEmail) {
 	var reEmail = /^[\w!#$%&'*+\/=?^`{|}~-]+(\.[\w!#$%&'*+\/=?^`{|}~-]+)*@(([\w-]+\.)+[A-Za-z]{2,6}|\[\d{1,3}(\.\d{1,3}){3}\])$/;
 	var returnCheckEmail = (!reEmail.test(strEmail) ? 0 : 1);
@@ -87,39 +87,38 @@ function checkEmail(strEmail) {
 }
 
 
-//Valida CPF
-function valida_cpf(cpf){ 
+function cpfValidate(cpf){ 
 	
-	//Remove os pontos e hifens do numero
+	// Remove dots and hyphens from number
 	cpf = cpf.replace(/\./g, "");
 	cpf = cpf.replace(/-/,"");
 	
-	var numeros, digitos, soma, i, resultado, digitos_iguais;
-    digitos_iguais = 1;
+	var numbers, digits, sum, i, result, same_digits;
+    same_digits = 1;
     if (cpf.length < 11)
           return false;
     for (i = 0; i < cpf.length - 1; i++)
           if (cpf.charAt(i) != cpf.charAt(i + 1))
                 {
-                digitos_iguais = 0;
+                same_digits = 0;
                 break;
                 }
-    if (!digitos_iguais)
+    if (!same_digits)
           {
-          numeros = cpf.substring(0,9);
-          digitos = cpf.substring(9);
-          soma = 0;
+          numbers = cpf.substring(0,9);
+          digits = cpf.substring(9);
+          sum = 0;
           for (i = 10; i > 1; i--)
-                soma += numeros.charAt(10 - i) * i;
-          resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-          if (resultado != digitos.charAt(0))
+                sum += numbers.charAt(10 - i) * i;
+          result = sum % 11 < 2 ? 0 : 11 - sum % 11;
+          if (result != digits.charAt(0))
                 return false;
-          numeros = cpf.substring(0,10);
-          soma = 0;
+          numbers = cpf.substring(0,10);
+          sum = 0;
           for (i = 11; i > 1; i--)
-                soma += numeros.charAt(11 - i) * i;
-          resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-          if (resultado != digitos.charAt(1))
+                sum += numbers.charAt(11 - i) * i;
+          result = sum % 11 < 2 ? 0 : 11 - sum % 11;
+          if (result != digits.charAt(1))
                 return false;
           return true;
           }
@@ -127,52 +126,51 @@ function valida_cpf(cpf){
           return false;
 }
 
-//Valida CNPJ
-function valida_cnpj(cnpj){  
+function cnpjValidate(cnpj){  
 	
-	//Remove os pontos e hifens do numero
+	// Remove dots and hyphens from number
 	cnpj = cnpj.replace(/\./g, "");
 	cnpj = cnpj.replace(/-/,"");
 	cnpj = cnpj.replace(/\//g, '');
 	
-	var numeros, digitos, soma, i, resultado, pos, tamanho, digitos_iguais;
-    digitos_iguais = 1;
+	var numbers, digits, sum, i, result, pos, size, same_digits;
+    same_digits = 1;
     if (cnpj.length < 14 && cnpj.length < 15)
           return false;
     for (i = 0; i < cnpj.length - 1; i++)
           if (cnpj.charAt(i) != cnpj.charAt(i + 1))
                 {
-                digitos_iguais = 0;
+                same_digits = 0;
                 break;
                 }
-    if (!digitos_iguais)
+    if (!same_digits)
           {
-          tamanho = cnpj.length - 2;
-          numeros = cnpj.substring(0,tamanho);
-          digitos = cnpj.substring(tamanho);
-          soma = 0;
-          pos = tamanho - 7;
-          for (i = tamanho; i >= 1; i--)
+          size = cnpj.length - 2;
+          numbers = cnpj.substring(0,size);
+          digits = cnpj.substring(size);
+          sum = 0;
+          pos = size - 7;
+          for (i = size; i >= 1; i--)
                 {
-                soma += numeros.charAt(tamanho - i) * pos--;
+                sum += numbers.charAt(size - i) * pos--;
                 if (pos < 2)
                       pos = 9;
                 }
-          resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-          if (resultado != digitos.charAt(0))
+          result = sum % 11 < 2 ? 0 : 11 - sum % 11;
+          if (result != digits.charAt(0))
                 return false;
-          tamanho = tamanho + 1;
-          numeros = cnpj.substring(0,tamanho);
-          soma = 0;
-          pos = tamanho - 7;
-          for (i = tamanho; i >= 1; i--)
+          size = size + 1;
+          numbers = cnpj.substring(0,size);
+          sum = 0;
+          pos = size - 7;
+          for (i = size; i >= 1; i--)
                 {
-                soma += numeros.charAt(tamanho - i) * pos--;
+                sum += numbers.charAt(size - i) * pos--;
                 if (pos < 2)
                       pos = 9;
                 }
-          resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-          if (resultado != digitos.charAt(1))
+          result = sum % 11 < 2 ? 0 : 11 - sum % 11;
+          if (result != digits.charAt(1))
                 return false;
           return true;
           }
@@ -196,19 +194,17 @@ function phoneAlt(v){
   return v.substring(0,14);
 }
 
-//Funcao para ir para o proximo campo de texto 
-function saltaCampo(prox, tammax, event) {
-   
-	if (event.value.length >= tammax) {
-        // Muda o foco para o proximo componente
-        prox.focus();
+// Functon to jump from next field
+function jumpField(next, maxSize, event) {
+	if (event.value.length >= maxSize) {
+        // Change focus from next component 
+        next.focus();
     }
-    
 };
 
 
-//Aplica a mascara de acordo com o tipo do numero
-function tipoTelefone(v){
+// Apply the mask according to number type
+function phoneType(v){
 	v=v.replace(/\D/g,"");
 	v=v.substring(0,11);
 	v=v.replace(/(\d{2})(\d)/,"($1) $2");
