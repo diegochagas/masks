@@ -1,8 +1,10 @@
-# Masks Description
+# Masks
 
-Masks for inputs fields.
+Functions that creates masks for inputs fields in JavaScript.
 
-# Descrição em Português/Brasil:
+## Technologies used
 
-Máscaras para campos de input.
+- HTML
+- CSS
+- JavaScript
 
