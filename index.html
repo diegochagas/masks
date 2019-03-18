@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Masks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="src/main.css" />
     <link rel="shortcut icon" type="image/png" href="src/facial-mask.png" />
-  </head>
-  <body>
-    <label>
-      Example with only numbers:
-      <input type="text" onkeyup="mask(this, onlyNumbers)" name="" value="" />
-    </label>
-    <script src="src/masks.js"></script>
-  </body>
+</head>
+<body>
+  <div class="container">
+    <h1>Masks</h1>
+    <div class="description">
+        Library with functions that creates masks for inputs fields in JavaScript.
+      <div class="container-code">
+        <h2>Mask to accept only numbers</h2>
+        <div class="description-code">
+          <label>
+            Input field that accepts only numbers:
+            <input type="text" onkeyup="executeMask(this, acceptsNumbersOnly)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, acceptsNumbersOnly)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+      <div class="container-code">
+        <h2>Mask to accept only numbers</h2>
+        <div class="description-code">
+          <label>
+            Input field that accepts only numbers:
+            <input type="text" onkeyup="executeMask(this, acceptsNumbersOnly)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, acceptsNumbersOnly)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="src/masks.js"></script>
+</body>
 </html>

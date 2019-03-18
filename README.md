@@ -1,6 +1,6 @@
 # Masks
 
-Functions that creates masks for inputs fields in JavaScript.
+Library with functions that creates masks for inputs fields in JavaScript.
 
 ## Technologies used
 
