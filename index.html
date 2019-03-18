@@ -17,7 +17,7 @@
         <h2>Mask to accept only numbers</h2>
         <div class="description-code">
           <label>
-            Input field that accepts only numbers:
+            Field that accepts only numbers:
             <input type="text" onkeyup="executeMask(this, acceptsNumbersOnly)" name="" value="" />
           </label>
         </div>
@@ -28,16 +28,128 @@
         </div>
       </div>
       <div class="container-code">
-        <h2>Mask to accept only numbers</h2>
+        <h2>Mask for CEP</h2>
         <div class="description-code">
           <label>
-            Input field that accepts only numbers:
-            <input type="text" onkeyup="executeMask(this, acceptsNumbersOnly)" name="" value="" />
+            Field for CEP ('Código de Endereçamento Postal', or ZIP code in English):
+            <input type="text" onkeyup="executeMask(this, CEP)" name="" value="" />
           </label>
         </div>
         <div class="code">
           <code>
-            HTML = &lt;input type="text" onkeyup="executeMask(this, acceptsNumbersOnly)" name="" value=""/&gt;
+            HTML = &lt;input type="text" onkeyup="executeMask(this, CEP)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+      <div class="container-code">
+        <h2>Mask for data</h2>
+        <div class="description-code">
+          <label>
+            Field for data:
+            <input type="text" onkeyup="executeMask(this, data)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, data)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+      <div class="container-code">
+        <h2>Mask for CPF</h2>
+        <div class="description-code">
+          <label>
+            Field for brazilian CPF ('Cadastro de Pessoa Física' or 'Individual Registration in English'):
+            <input type="text" onkeyup="executeMask(this, CPF)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, CPF)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+      <div class="container-code">
+        <h2>Mask for CNPJ</h2>
+        <div class="description-code">
+          <label>
+            Field for brazilian CNPJ ('Cadastro Nacional de Pessoa Jurídica' or National Register of Legal Entities in English):
+            <input type="text" onkeyup="executeMask(this, CNPJ)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, CNPJ)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+      <div class="container-code">
+        <h2>Mask for CPF and CNPJ together</h2>
+        <div class="description-code">
+          <label>
+            Field for brazilian CPF ('Cadastro de Pessoa Física' or 'Individual Registration in English') and brazilian CNPJ ('Cadastro Nacional de Pessoa Jurídica' or National Register of Legal Entities in English):
+            <input type="text" onkeyup="executeMask(this, CPFAndCNPJ)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, CPFAndCNPJ)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+      <div class="container-code">
+        <h2>Mask for RG</h2>
+        <div class="description-code">
+          <label>
+            Field for brazilian RG ('Registro Geral' or General Registration in English):
+            <input type="text" onkeyup="executeMask(this, RG)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, RG)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+      <div class="container-code">
+        <h2>Mask for telephone</h2>
+        <div class="description-code">
+          <label>
+            Field for telephone:
+            <input type="text" onkeyup="executeMask(this, telephone)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, telephone)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+      <div class="container-code">
+        <h2>Mask for cellphone</h2>
+        <div class="description-code">
+          <label>
+            Field for cellphone:
+            <input type="text" onkeyup="executeMask(this, cellphone)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, cellphone)" name="" value=""/&gt;
+          </code>
+        </div>
+      </div>
+      <div class="container-code">
+        <h2>Mask for telephone and cellphone</h2>
+        <div class="description-code">
+          <label>
+            Field for telephone and cellphone:
+            <input type="text" onkeyup="executeMask(this, telephoneAndCellphone)" name="" value="" />
+          </label>
+        </div>
+        <div class="code">
+          <code>
+            HTML = &lt;input type="text" onkeyup="executeMask(this, telephoneAndCellphone)" name="" value=""/&gt;
           </code>
         </div>
       </div>

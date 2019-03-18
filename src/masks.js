@@ -16,8 +16,8 @@ function acceptsNumbersOnly(fieldValue){
 } 
 
 function CEP(fieldValue) {
-  const valueWithOnlyNumbers = fieldValue.replace(/\D/g, "");
-  fieldValue = valueWithOnlyNumbers.substring(0, 8);
+  fieldValue = fieldValue.replace(/\D/g, "");
+  fieldValue = fieldValue.substring(0, 8);
   fieldValue = fieldValue.replace(/(\d{5})(\d{3})/, "$1-$2");
   return fieldValue;
 }
@@ -30,7 +30,7 @@ function data(fieldValue) {
   return fieldValue.substring(0, 10);
 }
 
-function cpfMask(fieldValue) {
+function CPF(fieldValue) {
   fieldValue = fieldValue.replace(/\D/g, "");
   fieldValue = fieldValue.substring(0, 11);
   fieldValue = fieldValue.replace(/(\d{3})(\d)/, "$1.$2");
@@ -39,7 +39,7 @@ function cpfMask(fieldValue) {
   return fieldValue.substring(0, 14);
 }
 
-function cnpj(fieldValue) {
+function CNPJ(fieldValue) {
   fieldValue = fieldValue.replace(/\D/g, "");
   fieldValue = fieldValue.substring(0, 14);
   fieldValue = fieldValue.replace(/^(\d{2})(\d)/, "$1.$2");
@@ -49,16 +49,7 @@ function cnpj(fieldValue) {
   return fieldValue;
 }
 
-function rgMask(fieldValue) {
-  fieldValue = fieldValue.replace(/\D/g, "");
-  fieldValue = fieldValue.replace(/^(\d{2})(\d{1})/g, "$1.$2");
-  fieldValue = fieldValue.replace(/^(\d{2}\.\d{3})(\d{1})/g, "$1.$2");
-  fieldValue = fieldValue.replace(/^(\d{2}\.\d{3}\.\d{3})(\d{1})/g, "$1-$2");
-  return fieldValue;
-}
-
-// Apply the mask of CPF or CNPJ according to the quantity of numbers
-function cpfCnpj(fieldValue) {
+function CPFAndCNPJ(fieldValue) {
   fieldValue = fieldValue.replace(/\D/g, "");
   if (fieldValue.length < 12) {
     fieldValue = fieldValue.substring(0, 11);
@@ -75,11 +66,47 @@ function cpfCnpj(fieldValue) {
   return fieldValue;
 }
 
-// Function to validate email
-function checkEmail(fieldValue) {
-  var reEmail = /^[\w!#$%&'*+\/=?^`{|}~-]+(\.[\w!#$%&'*+\/=?^`{|}~-]+)*@(([\w-]+\.)+[A-Za-z]{2,6}|\[\d{1,3}(\.\d{1,3}){3}\])$/;
-  var returnCheckEmail = !reEmail.test(fieldValue) ? 0 : 1;
-  return returnCheckEmail;
+function RG(fieldValue) {
+  fieldValue = fieldValue.replace(/\D/g, "");
+  fieldValue = fieldValue.substring(0, 10);
+  fieldValue = fieldValue.replace(/^(\d{2})(\d{1})/g, "$1.$2");
+  fieldValue = fieldValue.replace(/^(\d{2}\.\d{3})(\d{1})/g, "$1.$2");
+  fieldValue = fieldValue.replace(/^(\d{2}\.\d{3}\.\d{3})(\d{1})/g, "$1-$2");
+  return fieldValue;
+}
+
+function telephone(fieldValue) {
+  fieldValue = fieldValue.replace(/\D/g, "");
+  fieldValue = fieldValue.substring(0, 11);
+  fieldValue = fieldValue.replace(/(\d{2})(\d)/, "($1) $2");
+  fieldValue = fieldValue.replace(/(\d{4})(\d)/, "$1-$2");
+  return fieldValue.substring(0, 14);
+}
+
+function cellphone(fieldValue) {
+  fieldValue = fieldValue.replace(/\D/g, "");
+  fieldValue = fieldValue.substring(0, 11);
+  fieldValue = fieldValue.replace(/(\d{2})(\d)/, "($1) $2");
+  fieldValue = fieldValue.replace(/(\d{5})(\d)/, "$1-$2");
+  return fieldValue.substring(0, 15);
+}
+
+function telephoneAndCellphone(fieldValue) {
+  fieldValue = fieldValue.replace(/\D/g, "");
+  fieldValue = fieldValue.substring(0, 11);
+  fieldValue = fieldValue.replace(/(\d{2})(\d)/, "($1) $2");
+  if (fieldValue.length > 13) {
+    fieldValue = fieldValue.replace(/(\d{5})(\d)/, "$1-$2");
+  } else {
+    fieldValue = fieldValue.replace(/(\d{4})(\d)/, "$1-$2");
+  }
+  return fieldValue;
+}
+
+function emailValidate(fieldValue) {
+  const regexEmail = /^[\w!#$%&'*+\/=?^`{|}~-]+(\.[\w!#$%&'*+\/=?^`{|}~-]+)*@(([\w-]+\.)+[A-Za-z]{2,6}|\[\d{1,3}(\.\d{1,3}){3}\])$/;
+  const emailIsValid = !regexEmail.test(fieldValue) ? false : true;
+  return emailIsValid;
 }
 
 function cpfValidate(cpf) {
@@ -151,39 +178,10 @@ return true;
 } else return false;
 }
 
-function phone(fieldValue) {
-  fieldValue = fieldValue.replace(/\D/g, "");
-  fieldValue = fieldValue.substring(0, 11);
-  fieldValue = fieldValue.replace(/(\d{2})(\d)/, "($1) $2");
-  fieldValue = fieldValue.replace(/(\d{4})(\d)/, "$1-$2");
-  return fieldValue.substring(0, 15);
-}
-
-function phoneAlt(fieldValue) {
-fieldValue = fieldValue.replace(/\D/g, "");
-fieldValue = fieldValue.substring(0, 11);
-fieldValue = fieldValue.replace(/(\d{2})(\d)/, "($1) $2");
-fieldValue = fieldValue.replace(/(\d{4})(\d)/, "$1-$2");
-return fieldValue.substring(0, 14);
-}
-
 // Functon to jump from next field
 function jumpField(next, maxSize, event) {
 if (event.value.length >= maxSize) {
 // Change focus from next component
 next.focus();
 }
-}
-
-// Apply the mask according to number type
-function phoneType(fieldValue) {
-fieldValue = fieldValue.replace(/\D/g, "");
-fieldValue = fieldValue.substring(0, 11);
-fieldValue = fieldValue.replace(/(\d{2})(\d)/, "($1) $2");
-if (fieldValue.length > 13) {
-fieldValue = fieldValue.replace(/(\d{5})(\d)/, "$1-$2");
-} else {
-fieldValue = fieldValue.replace(/(\d{4})(\d)/, "$1-$2");
-}
-return fieldValue;
 }
