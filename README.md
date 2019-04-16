@@ -2,7 +2,7 @@
 
 Library with functions that creates masks for inputs fields in JavaScript.
 
-## Technologies used
+## Used technologies
 
 - HTML
 - CSS
